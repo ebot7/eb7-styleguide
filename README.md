@@ -33,3 +33,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.github_token }}
 ```
 
+Currently there a three parameters:
+- `path` describes the path to the directory you want to lint. Per default the whole repo is linted.
+- `reporter` describes the reviewdog reporter. Per default the report is printed directly to console. Use
+  `github-pr-review` to open a comment on a pull request review or `github-pr-check` to check commit based. See
+  [this](https://github.com/reviewdog/reviewdog#reporters) for more information.
+- `settings` settings refers to the flake8 settings file you want to use. This is mandatory and allows you to use
+  different settings for different repositories.
