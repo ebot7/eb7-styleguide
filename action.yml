@@ -1,11 +1,5 @@
-# This is a definition file for a Github Action.
-# See: https://help.github.com/en/articles/creating-a-docker-container-action
-
-# We also define metadata here:
-# See: https://help.github.com/en/articles/metadata-syntax-for-github-actions
-
-name: 'eb7-styleguide'
-description: 'Runs eb7-styleguide as a Github Action'
+name: 'styleguide'
+description: 'Runs styleguide as a Github Action'
 branding:
   icon: 'check'
   color: 'green'
@@ -19,9 +13,13 @@ inputs:
     description: 'How would you like the results to be displayed?'
     required: false
     default: 'terminal'
+  settings:
+    description: 'Path to the settings file'
+    required: true
+
 outputs:
   output:
-    description: 'The output of eb7-styleguide run'
+    description: 'The output of styleguide run'
 
 runs:
   using: 'docker'
@@ -29,3 +27,4 @@ runs:
   args:
     - ${{ inputs.path }}
     - ${{ inputs.reporter }}
+    - ${{ inputs.settings }}
