@@ -9,6 +9,7 @@ RUN pip install wemake-python-styleguide flakehell \
 
 # Custom configuration for this action:
 ADD scripts /
+ADD settings /
 
 # Entrypoint:
 COPY scripts/entrypoint.sh /
