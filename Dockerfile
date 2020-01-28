@@ -2,7 +2,7 @@ FROM python:3.7
 
 ENV REVIEWDOG_VERSION='v0.9.15'
 
-RUN pip install wemake-python-styleguide flakehell \
+RUN pip install wemake-python-styleguide \
   # Installing reviewdog to optionally comment on pull requests:
   && wget -O - -q 'https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh' \
   | sh -s -- -b /usr/local/bin/ "$REVIEWDOG_VERSION"
