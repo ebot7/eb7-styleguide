@@ -8,7 +8,7 @@ echo 'flake8 --version:'
 flake8 --version
 echo '================================='
 echo
-
+ls
 cat "$INPUT_SETTINGS"
 
 # Runs flake8, possibly with reviewdog:
