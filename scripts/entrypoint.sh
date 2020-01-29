@@ -8,12 +8,12 @@ echo 'flake8 --version:'
 flake8 --version
 echo '================================='
 echo
-ls
-cat "$INPUT_SETTINGS"
+
+cat "/$INPUT_SETTINGS"
 
 # Runs flake8, possibly with reviewdog:
 if [ "$INPUT_REPORTER" == 'terminal' ]; then
-  output=$(flake8 "$INPUT_PATH" --config="$INPUT_SETTINGS")
+  output=$(flake8 "$INPUT_PATH" --config="/$INPUT_SETTINGS")
   status="$?"
 elif [ "$INPUT_REPORTER" == 'github-pr-review' ] ||
      [ "$INPUT_REPORTER" == 'github-pr-check' ]; then
@@ -21,7 +21,7 @@ elif [ "$INPUT_REPORTER" == 'github-pr-review' ] ||
   export REVIEWDOG_GITHUB_API_TOKEN="$GITHUB_TOKEN"
 
   # Running special version of `flake8` to match the `reviewdog` format:
-  output=$(flake8 "$INPUT_PATH" --config="$INPUT_SETTINGS" -v)
+  output=$(flake8 "$INPUT_PATH" --config="/$INPUT_SETTINGS" -v)
   echo "$output" | reviewdog -f=pep8 -reporter="$INPUT_REPORTER" -level=error
   # `reviewdog` does not fail with any status code, so we have to get dirty:
   status=$(test "$output" = ''; echo $?)

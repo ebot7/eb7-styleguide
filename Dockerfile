@@ -8,7 +8,6 @@ RUN pip install wemake-python-styleguide \
   | sh -s -- -b /usr/local/bin/ "$REVIEWDOG_VERSION"
 
 # Custom configuration for this action:
-ADD scripts /
 ADD settings /
 
 # Entrypoint:
