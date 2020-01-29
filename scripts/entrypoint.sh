@@ -2,13 +2,13 @@
 
 # Diagnostic output:
 echo "Using reporter: $INPUT_REPORTER"
-echo "Using reporter: $INPUT_SETTINGS"
 echo "Linting path: $INPUT_PATH"
 echo 'flake8 --version:'
 flake8 --version
 echo '================================='
 echo
 
+echo "Using Settings: $INPUT_SETTINGS"
 cat "/$INPUT_SETTINGS"
 
 # Runs flake8, possibly with reviewdog:
@@ -35,9 +35,9 @@ echo "::set-output name=output::$output"
 echo '================================='
 echo
 
- Fail the build in case status code is not 0:
-if [ "$status" != 0 ]; then
-  echo "$output"
-  echo "Process failed with the status code: $status"
-  exit "$status"
-fi
+# Fail the build in case status code is not 0:
+#if [ "$status" != 0 ]; then
+#  echo "$output"
+#  echo "Process failed with the status code: $status"
+#  exit "$status"
+#fi
