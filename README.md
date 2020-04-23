@@ -32,6 +32,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
 ```
+## Violation Codes
+https://wemake-python-stylegui.de/en/latest/pages/usage/violations/index.html
 
 Currently there a three parameters:
 - `path` describes the path to the directory you want to lint. Per default the whole repo is linted.
