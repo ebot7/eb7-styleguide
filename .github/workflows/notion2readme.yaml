@@ -1,0 +1,27 @@
+name: Notion2Readme
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Notion2Readme
+        uses: mcschmitz/notion2readme@main
+        with:
+          url: 'https://www.notion.so/ebot7/eb7-styleguideeb7-styleguide-6fe25b7cafbc4026b812cec6e847d04d'
+        env:
+          TOKEN_V2: ${{ secrets.token_v2 }}
+      - name: Push Readme
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "NOTION2README"
+          git push
