@@ -24,8 +24,8 @@ jobs:
         uses: ebot7/eb7-styleguide@master
         with:
           reporter: 'github-pr-review'
-					settings: 'settings.cgf'
-				env:
+	  settings: 'settings.cgf'
+	env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
 ```
 
