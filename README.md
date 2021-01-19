@@ -23,7 +23,9 @@ jobs:
       - name: Check Style
         uses: ebot7/eb7-styleguide@master
         with:
-          reporter: 'github-pr-review'settings: 'settings.cgf'env:
+          reporter: 'github-pr-review'
+					settings: 'settings.cgf'
+				env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
 ```
 
